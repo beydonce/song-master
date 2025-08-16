@@ -6,11 +6,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9000:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     container_name: "song-master-front"
 
   backend:
     image: song-master-flask
     container_name: song-master-backend
+    
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -31,9 +35,6 @@ services:
     volumes:
       - mongo_data:/data/db
 
-
-
-  # backend:
 
 volumes:
   mongo_data:
