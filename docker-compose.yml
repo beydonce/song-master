@@ -1,0 +1,12 @@
+services:
+  front:
+    image: song-master-react
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "9000:5173"
+    container_name: "song-master-front"
+
+
+  # backend:
