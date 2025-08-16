@@ -8,5 +8,32 @@ services:
       - "9000:5173"
     container_name: "song-master-front"
 
+  backend:
+    image: song-master-flask
+    container_name: song-master-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    environment:
+      - FLASK_ENV=development
+      - MONGO_URI=mongodb://mongodb:27017/
+    
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+
 
   # backend:
+
+volumes:
+  mongo_data:
