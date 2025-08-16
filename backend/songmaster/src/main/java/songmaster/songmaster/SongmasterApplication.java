@@ -1,0 +1,13 @@
+package songmaster.songmaster;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SongmasterApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SongmasterApplication.class, args);
+	}
+
+}
